@@ -1,0 +1,26 @@
+<!-- templates/fornecedores.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Fornecedores - Zé Pinheiros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+    <h1>Gerenciar Fornecedores</h1>
+    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
+    <h2>Adicionar Fornecedor</h2>
+    <form method="POST">
+        Nome: <input type="text" name="nome" required>
+        Contato: <input type="text" name="contato">
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Lista de Fornecedores</h2>
+    <ul>
+        {% for fornecedor in fornecedores %}
+            <li>{{ fornecedor[1] }} ({{ fornecedor[2] }}) - <a href="{{ url_for('delete_fornecedor', id=fornecedor[0]) }}">Excluir</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

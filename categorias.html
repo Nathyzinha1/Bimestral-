@@ -1,0 +1,25 @@
+<!-- templates/categorias.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorias - Zé Pinheiros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+    <h1>Gerenciar Categorias</h1>
+    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
+    <h2>Adicionar Categoria</h2>
+    <form method="POST">
+        Nome: <input type="text" name="nome" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Lista de Categorias</h2>
+    <ul>
+        {% for categoria in categorias %}
+            <li>{{ categoria[1] }} - <a href="{{ url_for('delete_categoria', id=categoria[0]) }}">Excluir</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

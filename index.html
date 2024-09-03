@@ -1,0 +1,20 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Zé Pinheiros - Supermercado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+    <h1>Bem-vindo ao Supermercado Zé Pinheiros</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('categorias') }}">Gerenciar Categorias</a></li>
+            <li><a href="{{ url_for('fornecedores') }}">Gerenciar Fornecedores</a></li>
+            <li><a href="{{ url_for('produtos') }}">Gerenciar Produtos</a></li>
+            <li><a href="{{ url_for('pedidos') }}">Gerenciar Pedidos</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

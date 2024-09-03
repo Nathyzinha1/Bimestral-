@@ -1,0 +1,29 @@
+<!-- templates/pedidos.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos - Zé Pinheiros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+    <h1>Gerenciar Pedidos</h1>
+    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
+    <h2>Adicionar Pedido</h2>
+    <form method="POST">
+        Data do Pedido: <input type="date" name="data_pedido" required>
+        <h3>Selecione os Produtos:</h3>
+        {% for produto in produtos %}
+            <input type="checkbox" name="produto_ids" value="{{ produto[0] }}"> {{ produto[1] }}<br>
+        {% endfor %}
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Lista de Pedidos</h2>
+    <ul>
+        {% for pedido in pedidos %}
+            <li>Pedido #{{ pedido[0] }} - {{ pedido[1] }} - <a href="{{ url_for('delete_pedido', id=pedido[0]) }}">Excluir</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
